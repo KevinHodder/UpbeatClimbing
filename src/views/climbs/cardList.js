@@ -18,7 +18,7 @@ export default class CardList extends React.Component {
 
 	render() {
 		const {config, remote} = this.props.stores;
-		let data = remote.climbs.slice();
+		let data = remote.climbs.filter(item => (item.location === config.activeLocation.id));
 		return (
 		<ImageBackground source={{uri: config.backgroundImage}} style={{width: '100%', height: '100%'}}>
 			<View style={{flex: 1}}>
@@ -28,17 +28,18 @@ export default class CardList extends React.Component {
 					</TouchableOpacity>
 					<Text style={styles.title}>{config.activeLocation.name}</Text>
 				</View>
-				{ data ?
+				{ data.length > 0 ?
 					<FlatList
-						data={remote.climbs.filter(item => (item.location === config.activeLocation.id))}
+						data={data}
 						keyExtractor={item => item.title}
 						renderItem={({item}) => (<ClimbCard key={item.title} card={item} style={{minHeight: '100%'}} />) }
 						numColumns={2}
 					/> 
 						:
-					<Text>
-						No climbs here yet! Add your first now
-					</Text>
+				<View style={styles.emptyTextView}>
+					<Text style={styles.emptyText}>No climbs here yet! Add your first now</Text>
+					<Text style={styles.emptyText}>Click the Plus button below</Text>
+				</View>
 				}
 			</View>
 		</ImageBackground>
@@ -72,5 +73,15 @@ const styles = StyleSheet.create({
 		marginHorizontal: 30
 	},
 	cards: {
+	},
+	emptyText: {
+		fontSize: 30,
+		textAlign: 'center'
+		// color: 'green' //TODO change this to a real colour
+	},
+	emptyTextView: {
+		marginTop: 100,
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 });

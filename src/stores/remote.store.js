@@ -3,26 +3,26 @@ import firebase from 'firebase';
 
 export default class RemoteStore {
 	locations = observable.array([
-		// {
-		// 	name: 'Undercover Rock',
-		// 	image: 'https://picsum.photos/200?random',
-		// 	id: 1
-		// },
-		// {
-		// 	name: 'The Climbing Academy',
-		// 	image: 'https://picsum.photos/200?random',
-		// 	id: 2
-		// },
-		// {
-		// 	name: 'Bloc',
-		// 	image: 'https://picsum.photos/200?random',
-		// 	id: 3
-		// },
-		// {
-		// 	name: 'Red Point',
-		// 	image: 'https://picsum.photos/200?random',
-		// 	id: 4
-		// },
+		{
+			name: 'Undercover Rock',
+			image: 'https://picsum.photos/200?random',
+			id: 1
+		},
+		{
+			name: 'The Climbing Academy',
+			image: 'https://picsum.photos/200?random',
+			id: 2
+		},
+		{
+			name: 'Bloc',
+			image: 'https://picsum.photos/200?random',
+			id: 3
+		},
+		{
+			name: 'Red Point',
+			image: 'https://picsum.photos/200?random',
+			id: 4
+		},
 	]);
 
 	climbs = observable.array([

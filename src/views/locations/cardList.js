@@ -14,7 +14,7 @@ export default class CardList extends React.Component {
 		const {config, remote} = this.props.stores;
 		return (
 		<ImageBackground source={{uri: config.backgroundImage}} style={{width: '100%', height: '100%'}}>
-			<View style={{height: '100%'}}>
+			<View style={{flex: 1}}>
 				<View style={styles.listHeader}>
 					<Text style={styles.title}>{HeaderText}</Text>
 				</View>
@@ -36,9 +36,6 @@ export default class CardList extends React.Component {
 		);
 	}
 }
-
-//
-
 
 const styles = StyleSheet.create({
 	listHeader: {
@@ -67,7 +64,7 @@ const styles = StyleSheet.create({
 	},
 	emptyText: {
 		fontSize: 30,
-		color: 'green' //TODO change this to a real colour
+		// color: 'green' //TODO change this to a real colour
 	},
 	emptyTextView: {
 		marginTop: 100,
