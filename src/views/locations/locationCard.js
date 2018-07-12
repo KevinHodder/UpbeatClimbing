@@ -30,15 +30,15 @@ export default class LocationCard extends React.Component {
         <Card style={styles.card} >
           <View style={styles.contents}>
             <Text style={styles.title}>{this.props.card.name}</Text>
-            <View style={{borderBottomColor: 'black',
-    borderBottomWidth: 1, width: '85%'}}/>
-            <Text style={styles.description}>
-              {this.props.card.description}
-            </Text>
-            <Image
-              style={styles.image}
-              source={{uri: this.props.card.image}}
-            />
+              <View style={{borderBottomColor: 'black',
+      borderBottomWidth: 1, width: '85%'}}/>
+              <Text style={styles.description}>
+                {this.props.card.description}
+              </Text>
+              <Image
+                style={styles.image}
+                source={{uri: this.props.card.image || 'default image path'}} //TODO pick a real default image
+              />
           </View>
         </Card>
       </TouchableOpacity>

@@ -19,7 +19,7 @@ export default class RemoteStore {
 			id: 3
 		},
 		{
-			name: 'Red Point',
+			name: 'Red Point with some extra stuff to see if the neighbouring card expands',
 			image: 'https://picsum.photos/200?random',
 			id: 4
 		},
@@ -52,7 +52,7 @@ export default class RemoteStore {
 		},
 		{
 			title: 'Title5',
-			description: 'emphasise scrolling',
+			description: 'emphasise scrolling with a wrapping text',
 			imageUrl: 'https://picsum.photos/200?random',
 			location: 1
 		}

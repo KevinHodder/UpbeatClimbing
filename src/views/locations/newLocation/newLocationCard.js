@@ -18,6 +18,15 @@ export default class newLocationCard extends Component {
 	                       onPress={() => {this._child.setModalVisible(false)}}>
 									<Text>Save and close</Text>
 								</Button>);
+	cancelButton = (<Button rounded danger
+	                        style={styles.cancelButton}
+	                        onPress={() => {this._child.setModalVisible(false)}}>
+									<Text>Cancel</Text>
+								</Button>)
+
+	saveAndClose = () => {
+		
+	}
 	onClose = () => {console.log('on Close action');};
 
 	render() {
@@ -27,12 +36,13 @@ export default class newLocationCard extends Component {
 						open={this.openButton}
 						openContainerStyle={styles.addBadge}
 				    close={this.closeButton}
-				    onClose={this.onClose()}
+				    onClose={this.onClose}
 				>
-					<View>
 						<Text style={{marginTop: 20, fontSize: 40}}>Add a new location</Text>
-						<NewLocationForm></NewLocationForm>
+						<NewLocationForm ref={(ref) => this._form = ref}></NewLocationForm>
+					<View style={styles.buttonContainer}>
 						{this.closeButton}
+						{this.cancelButton}
 					</View>
 				</MyModal>
 		);
@@ -50,10 +60,19 @@ const styles = StyleSheet.create({
 	addIcon: {
 		fontSize: 30
 	},
-	closeButton: {
+	buttonContainer: {
 		position: 'absolute',
+		bottom: 0,
+		paddingVertical: 20,
+		width: '100%',
+		flexDirection: 'row',
+		justifyContent: 'flex-end'
+	},
+	closeButton: {
 		paddingHorizontal: 10,
-		right: 0,
-		bottom: 0
+		marginRight: 8,
+	},
+	cancelButton: {
+			paddingHorizontal: 10,
 	}
 });

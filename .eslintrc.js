@@ -24,5 +24,6 @@ module.exports = {
     semi: ['error', 'always'],
     'no-console': ['warn', { allow: ['info', 'error'] }],
     'arrow-parens': ['error', 'always'],
+    'comma-dangle': ['error','only-multiline']
   },
 };

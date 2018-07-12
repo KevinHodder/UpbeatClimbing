@@ -18,7 +18,7 @@ export default class Home extends React.Component {
 		return (
 				<View style={styles.page}>
 					<View style={styles.textContainer}>
-						<Text style={styles.title}>Welcome to our wonderful app!</Text>
+						<Text style={styles.title}>Upbeat Climbing</Text>
 					</View>
 					<Image
 							source={{uri: 'https://northumbriasport.com/uploads/logos/tn_2_57e500e673bae-north---climbing_57e500e673b17.png'}}

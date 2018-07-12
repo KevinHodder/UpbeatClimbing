@@ -1,5 +1,5 @@
 // import React from 'react';
-import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation';
 import LocationsView from './views/locations/locations';
 import ClimbsView from './views/climbs/climbs';
 import SplashView from './views/splash';
