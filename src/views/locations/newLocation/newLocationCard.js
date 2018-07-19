@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { Button, Icon } from 'native-base';
+import {inject, observer} from 'mobx-react';
 
 import MyModal from '../../../components/myModal';
 import NewLocationForm from './newLocationForm';
 
+@inject('stores')
 export default class newLocationCard extends Component {
+	constructor(props) {
+		super(props);
+	}
 
 	openButton= (<Button rounded danger
 	                     style={styles.addBadge}
@@ -15,18 +20,26 @@ export default class newLocationCard extends Component {
 
 	closeButton = (<Button rounded primary
 	                       style={styles.closeButton}
-	                       onPress={() => {this._child.setModalVisible(false)}}>
+	                       onPress={() => {this.saveAndClose();}}>
 									<Text>Save and close</Text>
 								</Button>);
 	cancelButton = (<Button rounded danger
 	                        style={styles.cancelButton}
-	                        onPress={() => {this._child.setModalVisible(false)}}>
+	                        onPress={() => {this._child.setModalVisible(false);}}>
 									<Text>Cancel</Text>
 								</Button>)
 
 	saveAndClose = () => {
-		
+		console.log('saving with data', this._form.state);
+		let formData = this._form.state;
+		const {remote} = this.props.stores;
+		remote.addLocation({
+			...formData,
+			id: Math.floor(Math.random()*1000),
+		});
+		this._child.setModalVisible(false);
 	}
+
 	onClose = () => {console.log('on Close action');};
 
 	render() {
