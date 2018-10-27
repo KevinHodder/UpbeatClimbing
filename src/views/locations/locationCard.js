@@ -9,6 +9,7 @@ export default class LocationCard extends React.Component {
     super(props);
   }
 
+  defaultImagePath = 'https://picsum.photos/200?random'
 
   static propTypes = {
     card: PropTypes.object.isRequired,
@@ -37,7 +38,7 @@ export default class LocationCard extends React.Component {
               </Text>
               <Image
                 style={styles.image}
-                source={{uri: this.props.card.image || 'default image path'}} //TODO pick a real default image
+                source={{uri: this.props.card.image || this.defaultImagePath }} //TODO pick a real default image
               />
           </View>
         </Card>
